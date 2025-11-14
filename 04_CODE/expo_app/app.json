@@ -3,6 +3,13 @@
     "name": "Synapse AGI",
     "slug": "synapse-agi",
     "version": "0.0.1",
-    "platforms": ["ios", "android", "web"]
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "plugins": [
+      "expo-asset"
+    ]
   }
 }
