@@ -1,0 +1,226 @@
+SYNAPSE_AGI_PROJECT/
+│
+├── 01_ARCHITECTURE/                                    # ← ČÍSLO 1: Architektura
+│   ├── architecture_v2.1.md                            # Tento soubor
+│   ├── system_flow.mmd                                 # Mermaid – celý tok
+│   ├── data_flow_i18n.png                              # Lokalizace + měny
+│   └── tech_stack.md                                   # Expo, i18n, currencies
+│
+├── 02_PRD/                                             # ← ČÍSLO 2: Product Requirements Document
+│   ├── prd_synapse_agi_v1.1.md                         # PRD s i18n
+│   ├── prd_synapse_agi_v1.1.pdf
+│   ├── user_stories/
+│   │   ├── US-001_Dream_Input.md
+│   │   ├── US-002_Avatar_Generation.md
+│   │   ├── US-003_NFT_Mint.md
+│   │   ├── US-004_Rating_System.md
+│   │   ├── US-005_Viral_Share.md
+│   │   ├── US-006_Payout.md
+│   │   └── US-007_Language_Switch.md                   # ← NOVÉ
+│   └── wireframes/
+│       ├── screen_dream_input_cs.png
+│       ├── screen_dream_input_en.png
+│       └── screen_dream_input_de.png
+│
+├── 03_PITCH/                                           # ← ČÍSLO 3: Pitch Deck
+│   ├── pitch_deck_v2.1.pdf                             # S jazykovými příklady
+│   ├── pitch_deck_v2.1.figma
+│   ├── pitch_deck_v2.1.pptx
+│   └── assets/
+│       ├── logo_synapse_agi.png
+│       ├── logo_simple_cs.png
+│       ├── logo_simple_en.png
+│       ├── dream_nft_cs.png
+│       ├── dream_nft_en.png
+│       └── tiktok_share_cs.mp4
+│
+├── 04_CODE/                                            # ← Kódová báze
+│   │
+│   ├── expo_app/                                       # ← EXPO MOBILE APP (i18n ready)
+│   │   ├── App.js
+│   │   ├── app.json
+│   │   ├── babel.config.js
+│   │   ├── package.json
+│   │   ├── tsconfig.json
+│   │   │
+│   │   ├── app/                                        # Expo Router
+│   │   │   ├── (tabs)/
+│   │   │   │   ├── index.tsx                           # Dream Input
+│   │   │   │   ├── avatar.tsx
+│   │   │   │   ├── profile.tsx
+│   │   │   │   └── _layout.tsx
+│   │   │   └── _layout.tsx
+│   │   │
+│   │   ├── components/
+│   │   │   ├── DreamInput.tsx
+│   │   │   ├── VoiceRecorder.tsx
+│   │   │   ├── Avatar3D.tsx
+│   │   │   ├── NFTCard.tsx
+│   │   │   ├── RatingStars.tsx
+│   │   │   ├── ShareButton.tsx
+│   │   │   ├── LanguageSwitcher.tsx                   # ← NOVÉ
+│   │   │   └── CurrencyDisplay.tsx                     # ← NOVÉ
+│   │   │
+│   │   ├── lib/
+│   │   │   ├── api/
+│   │   │   │   ├── grok_api.ts
+│   │   │   │   ├── nft_api.ts
+│   │   │   │   └── payout_api.ts
+│   │   │   ├── supabase/
+│   │   │   │   ├── client.ts
+│   │   │   │   └── queries.ts
+│   │   │   ├── solana/
+│   │   │   │   ├── wallet.ts
+│   │   │   │   └── mint_nft.ts
+│   │   │   ├── i18n/                                   # ← LOKALIZACE
+│   │   │   │   ├── index.ts                            # i18n-js init
+│   │   │   │   ├── translations/
+│   │   │   │   │   ├── cs.json                         # čeština
+│   │   │   │   │   ├── en.json                         # angličtina
+│   │   │   │   │   ├── de.json                         # němčina
+│   │   │   │   │   ├── sk.json                         # slovenština
+│   │   │   │   │   ├── pl.json                         # polština
+│   │   │   │   │   └── uk.json                         # ukrajinština (pro masu)
+│   │   │   │   └── currency_map.ts                     # Jazyk → měna
+│   │   │   └── utils/
+│   │   │       ├── rating_engine.ts
+│   │   │       ├── formatCurrency.ts                   # 50 Kč / 1.99 € / 2.29 $
+│   │   │       └── detectLanguage.ts                   # Auto-detect z OS
+│   │   │
+│   │   ├── assets/
+│   │   │   ├── icons/
+│   │   │   │   ├── flag_cs.png
+│   │   │   │   ├── flag_en.png
+│   │   │   │   ├── flag_de.png
+│   │   │   │   ├── dream.png
+│   │   │   │   └── nft.png
+│   │   │   ├── animations/
+│   │   │   │   └── confetti.json
+│   │   │   └── fonts/
+│   │   │       └── Inter-Regular.ttf
+│   │   │
+│   │   └── styles/
+│   │       ├── colors.ts
+│   │       └── theme.ts
+│   │
+│   ├── backend/                                        # ← FastAPI Backend (i18n ready)
+│   │   ├── main.py
+│   │   ├── requirements.txt
+│   │   ├── Dockerfile
+│   │   │
+│   │   ├── app/
+│   │   │   ├── routers/
+│   │   │   │   ├── dream.py
+│   │   │   │   ├── nft.py
+│   │   │   │   ├── payout.py
+│   │   │   │   └── user.py
+│   │   │   ├── models/
+│   │   │   │   ├── dream.py
+│   │   │   │   └── user.py
+│   │   │   ├── services/
+│   │   │   │   ├── grok_service.py
+│   │   │   │   ├── rating_service.py
+│   │   │   │   ├── nft_service.py
+│   │   │   │   └── localization_service.py         # ← NOVÉ: Překlad AI odpovědí
+│   │   │   └── database/
+│   │   │       ├── supabase_client.py
+│   │   │       └── migrations/
+│   │   │           └── 001_init.sql
+│   │   │
+│   │   └── tests/
+│   │       ├── test_dream_cs.py
+│   │       ├── test_dream_en.py
+│   │       └── test_currency.py
+│   │
+│   └── docker-compose.yml
+│
+├── 05_AI_MODELS/                                       # ← AI prompty (multijazyčné)
+│   ├── prompts/
+│   │   ├── dream_analysis/
+│   │   │   ├── cs.txt                                  # „Popiš sen jako dítě…“
+│   │   │   ├── en.txt
+│   │   │   ├── de.txt
+│   │   │   └── sk.txt
+│   │   ├── avatar_generation/
+│   │   │   ├── cs.txt
+│   │   │   └── en.txt
+│   │   └── nft_metadata/
+│   │       ├── cs.txt
+│   │       └── en.txt
+│   ├── embeddings/
+│   │   └── multilingual_thoughts_v1.pkl
+│   └── training_data/
+│       ├── dreams_cs.jsonl
+│       ├── dreams_en.jsonl
+│       └── adhd_thoughts_multilang.jsonl
+│
+├── 06_MONETIZATION_ENGINE/                             # ← Měny + Jazyky
+│   ├── currency/
+│   │   ├── cs_CZK.json                                 # { "symbol": "Kč", "rate": 1.0 }
+│   │   ├── en_USD.json                                 # { "symbol": "$", "rate": 0.043 }
+│   │   ├── de_EUR.json                                 # { "symbol": "€", "rate": 0.039 }
+│   │   ├── sk_EUR.json
+│   │   ├── pl_PLN.json
+│   │   └── uk_UAH.json
+│   ├── pricing/
+│   │   ├── premium_by_lang.json                        # cs: 79 Kč, de: 1.99 €, en: 2.29 $
+│   │   └── nft_by_lang.json
+│   ├── payout_system/
+│   │   ├── stripe_webhook.py
+│   │   ├── currency_converter.py                       # Auto-přepočet
+│   │   └── weekly_payout_scheduler.py
+│   └── marketplace_v2/
+│       ├── sell_thought.py
+│       └── buy_thought.py
+│
+├── 07_MARKETING_VIRAL/                                 # ← Multijazyčný virál
+│   ├── tiktok/
+│   │   ├── cs/
+│   │   │   └── challenge_001_dream_nft_cs.mp4
+│   │   ├── en/
+│   │   │   └── challenge_001_dream_nft_en.mp4
+│   │   └── de/
+│   │       └── challenge_001_dream_nft_de.mp4
+│   ├── instagram/
+│   │   └── reels_template_multilang.fig
+│   ├── x_threads/
+│   │   ├── cs_thread_001.txt
+│   │   └── en_thread_001.txt
+│   └── referral/
+│       └── referral_flow_multilang.png
+│
+├── 08_LEGAL/                                           # ← GDPR + Jazyky
+│   ├── gdpr_compliance_v1.pdf
+│   ├── user_consent_flow.png
+│   ├── terms_of_service/
+│   │   ├── cs.md
+│   │   ├── en.md
+│   │   ├── de.md
+│   │   ├── sk.md
+│   │   └── pl.md
+│   └── privacy_policy/
+│       ├── cs.md
+│       ├── en.md
+│       └── de.md
+│
+├── 09_FINANCE/
+│   ├── revenue_model_6months.xlsx
+│   ├── valuation_rating.xlsx
+│   ├── seed_round/
+│   │   ├── cap_table.xlsx
+│   │   └── use_of_funds_multicurrency.png
+│   └── payout_history_template.csv
+│
+├── 10_TESTS/
+│   ├── mobile/
+│   │   └── e2e_dream_to_nft_cs.spec.js
+│   ├── backend/
+│   │   ├── test_dream_cs.py
+│   │   └── test_currency_convert.py
+│   └── load_test/
+│       └── 1000_users_multilang.locust
+│
+├── .gitignore
+├── README.md
+├── KIRO_IDE_CONFIG.json                                # { "i18n": true, "currencies": true }
+└── package-lock.json

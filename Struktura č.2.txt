@@ -1,0 +1,95 @@
+SYNAPSE_AGI_PROJECT/
+│
+├── 01_ARCHITECTURE/
+│   ├── architecture_v3.0.md                            # Tento soubor
+│   ├── system_flow_viral.mmd
+│   └── target_markets.png                              # Mapa: Kde to bouchne
+│
+├── 02_PRD/
+│   ├── prd_synapse_agi_v1.2.md                         # PRD s virálními jazyky
+│   ├── prd_synapse_agi_v1.2.pdf
+│   └── user_stories/
+│       ├── US-008_Viral_Onboarding_BR.md               # ← NOVÉ
+│       └── US-009_ADHD_Community_IN.md
+│
+├── 03_PITCH/
+│   ├── pitch_deck_v3.0.pdf                             # „TikTok pro sny“
+│   └── assets/
+│       ├── tiktok_br.mp4
+│       ├── ig_reels_in.mp4
+│       └── x_thread_ar.mp4
+│
+├── 04_CODE/
+│   │
+│   ├── expo_app/
+│   │   ├── lib/
+│   │   │   ├── i18n/
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── translations/
+│   │   │   │   │   ├── cs.json                         # Česko (start)
+│   │   │   │   │   ├── pt_BR.json                      # Brazílie (TikTok král)
+│   │   │   │   │   ├── hi_IN.json                      # Indie (ADHD + NFT boom)
+│   │   │   │   │   ├── es_MX.json                      # Mexiko (sny + virál)
+│   │   │   │   │   ├── ar_AE.json                      # SAE (luxus + NFT)
+│   │   │   │   │   ├── id_ID.json                      # Indonézie (mládež + TikTok)
+│   │   │   │   │   ├── tr_TR.json                      # Turecko (psychologie + meme)
+│   │   │   │   │   └── th_TH.json                      # Thajsko (spiritualita + virál)
+│   │   │   │   └── currency_map_v3.ts                  # Jazyk → měna
+│   │   │
+│   │   └── components/
+│   │       └── LanguageSwitcherViral.tsx               # Vlajky + meme popisky
+│   │
+│   ├── backend/
+│   │   └── services/
+│   │       └── localization_viral.py                   # Překlad s místním slangem
+│   │
+├── 05_AI_MODELS/
+│   ├── prompts/
+│   │   ├── dream_analysis/
+│   │   │   ├── pt_BR.txt                               # „O que você sonhou, meu rei?“
+│   │   │   ├── hi_IN.txt                               # „आपने क्या सपना देखा?“
+│   │   │   ├── es_MX.txt                               # „¿Qué soñaste, carnal?“
+│   │   │   ├── ar_AE.txt                               # „شو حلمت، يا وحش؟“
+│   │   │   ├── id_ID.txt                               # „Mimpi apa tadi malam, bro?“
+│   │   │   ├── tr_TR.txt                               # „Ne rüyası gördün, kanka?“
+│   │   │   └── th_TH.txt                               # „ฝันอะไรคะ?“
+│   │   └── viral_share/
+│   │       ├── pt_BR.txt                               # „MEU SONHO VIROU NFT“
+│   │       └── hi_IN.txt                               # „मेरा सपना NFT बन गया!“
+│
+├── 06_MONETIZATION_ENGINE/
+│   ├── currency/
+│   │   ├── cs_CZK.json                                 # 50 Kč
+│   │   ├── pt_BRL.json                                 # R$ 5,00
+│   │   ├── hi_INR.json                                 # ₹ 99
+│   │   ├── es_MXN.json                                 # $ 25 MXN
+│   │   ├── ar_AED.json                                 # د.إ 5
+│   │   ├── id_IDR.json                                 # Rp 15.000
+│   │   ├── tr_TRY.json                                 # ₺ 15
+│   │   └── th_THB.json                                 # ฿ 50
+│   └── pricing/
+│       └── viral_premium.json                          # Indie: ₹ 49/měsíc
+│
+├── 07_MARKETING_VIRAL/
+│   ├── tiktok/
+│   │   ├── pt_BR/
+│   │   │   └── challenge_sonho_nft.mp4
+│   │   ├── hi_IN/
+│   │   │   └── challenge_sapna_nft.mp4
+│   │   ├── es_MX/
+│   │   │   └── challenge_sueno_nft.mp4
+│   │   └── ar_AE/
+│   │       └── challenge_7ilm_nft.mp4
+│   ├── instagram/
+│   │   └── reels_8languages.fig
+│   └── x_threads/
+│       ├── tr_thread_001.txt
+│       └── id_thread_001.txt
+│
+├── 08_LEGAL/
+│   ├── terms_of_service/
+│   │   ├── pt_BR.md
+│   │   ├── hi_IN.md
+│   │   └── ar_AE.md
+│
+└── ...
